@@ -9,6 +9,10 @@ export const DRYForm = ({ initialData, onSubmit }: any) => {
     onSubmit(loginData);
   };
 
+  const handleChange = (fieldName: any) => (fieldValue: any) => {
+    setLoginData({ ...loginData, [fieldName]: fieldValue });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <h1>DRY FORM</h1>
@@ -16,21 +20,21 @@ export const DRYForm = ({ initialData, onSubmit }: any) => {
       <InputField
         label="Nickname"
         value={loginData.nickname}
-        onChange={(nickname: any) => setLoginData({ ...loginData, nickname })}
+        onChange={handleChange('nickname')}
       />
 
       <InputField
         type="email"
         label="Email"
         value={loginData.email}
-        onChange={(email: any) => setLoginData({ ...loginData, email })}
+        onChange={handleChange('email')}
       />
 
       <InputField
         type="password"
         label="Password"
         value={loginData.password}
-        onChange={(password: any) => setLoginData({ ...loginData, password })}
+        onChange={handleChange('password')}
       />
       <button>Submit</button>
     </form>
