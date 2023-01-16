@@ -15,6 +15,7 @@ export const postAPI = createApi({
       }),
       providesTags: ['Post']
     }),
+    // onclick="$(\':input\',\'.wpcc_form\')  .not(\':button, :submit, :reset, :hidden\')  .val(\'\');"
     // <Что принимает аргументом, Что вернет ф-ция>
     createPost: build.mutation<IPost, IPost>({
       query: (post) => ({
